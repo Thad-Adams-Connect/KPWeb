@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Schedule Pro</div>
+        <div class="nav-menu">
+            <a href="#" class="nav-item active" data-page="home">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#fff" d="M10.8 2.65a2 2 0 0 1 2.4 0l7 5.25a2 2 0 0 1 .8 1.6V19a2 2 0 0 1-2 2h-4.9a1.1 1.1 0 0 1-1.1-1.1V14a1 1 0 1 0-2 0v5.9A1.1 1.1 0 0 1 9.9 21H5a2 2 0 0 1-2-2V9.5a2 2 0 0 1 .8-1.6zm1.2 1.6L5 9.5V19h4v-5a3 3 0 1 1 6 0v5h4V9.5z"/></g></svg>
+                <div class="nav-text">Home</div>
+            </a>
+            <a href="#" class="nav-item" data-page="calendar">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none">
+                        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                        <path fill="#fff" d="M16 3a1 1 0 0 1 .993.883L17 4v1h2a2 2 0 0 1 1.995 1.85L21 7v12a2 2 0 0 1-1.85 1.995L19 21H5a2 2 0 0 1-1.995-1.85L3 19V7a2 2 0 0 1 1.85-1.995L5 5h2V4a1 1 0 0 1 1.993-.117L9 4v1h6V4a1 1 0 0 1 1-1m3 9H5v7h14zm0-5H5v3h14z"/>
+                    </g>
+                    <text id="calendar-date" x="12" y="18" text-anchor="middle" fill="white" font-size="5" font-family="Arial" font-weight="bold"></text>
+                </svg>
+                <div class="nav-text">Calendar</div>
+            </a>
+            <a href="#" class="nav-item" data-page="chatbot">
+                <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V2H8m7 9v2M2 12h2m16 0h2m-2 4a2 2 0 0 1-2 2H8.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 4 20.286V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zM9 11v2"/>
+                </svg>
+                <div class="nav-text">AI Assistant</div>
+            </a>
+            <div class="nav-item dropdown" id="menuDropdown">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <g transform="translate(12,12)">
+                        <rect x="-9" y="-6" width="18" height="2" rx="1" fill="white"/>
+                        <rect x="-9" y="-1" width="18" height="2" rx="1" fill="white"/>
+                        <rect x="-9" y="4" width="18" height="2" rx="1" fill="white"/>
+                    </g>
+                </svg>
+                <div class="nav-text">Menu</div>
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-item" data-page="help">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                            <g fill="none">
+                                <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                                <path fill="#fff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 12a1 1 0 1 1 0 2a1 1 0 0 1 0-2m0-9.5a3.625 3.625 0 0 1 1.348 6.99a.8.8 0 0 0-.305.201c-.044.05-.051.114-.05.18L13 14a1 1 0 0 1-1.993.117L11 14v-.25c0-1.153.93-1.845 1.604-2.116a1.626 1.626 0 1 0-2.229-1.509a1 1 0 1 1-2 0A3.625 3.625 0 0 1 12 6.5"/>
+                            </g>
+                        </svg>
+                        Help
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="about">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                            <g fill="none">
+                                <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                                <path fill="#fff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m-.01 6c.558 0 1.01.452 1.01 1.01v5.124A1 1 0 0 1 12.5 18h-.49A1.01 1.01 0 0 1 11 16.99V12a1 1 0 1 1 0-2zM12 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2"/>
+                            </g>
+                        </svg>
+                        Info
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                                <path fill="#fff" d="M12 13c2.396 0 4.575.694 6.178 1.672c.8.488 1.484 1.064 1.978 1.69c.486.615.844 1.351.844 2.138c0 .845-.411 1.511-1.003 1.986c-.56.45-1.299.748-2.084.956c-1.578.417-3.684.558-5.913.558s-4.335-.14-5.913-.558c-.785-.208-1.524-.506-2.084-.956C3.41 20.01 3 19.345 3 18.5c0-.787.358-1.523.844-2.139c.494-.625 1.177-1.2 1.978-1.69C7.425 13.695 9.605 13 12 13m0 2c-2.023 0-3.843.59-5.136 1.379c-.647.394-1.135.822-1.45 1.222c-.324.41-.414.72-.414.899c0 .122.037.251.255.426c.249.2.682.407 1.344.582C7.917 19.858 9.811 20 12 20c2.19 0 4.083-.143 5.4-.492c.663-.175 1.096-.382 1.345-.582c.218-.175.255-.304.255-.426c0-.18-.09-.489-.413-.899c-.316-.4-.804-.828-1.451-1.222C15.843 15.589 14.023 15 12 15m0-13a5 5 0 1 1 0 10a5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6a3 3 0 0 0 0-6"/>
+                            </g>
+                        </svg>
+                        Profile
+                    </a>
+                    <a href="#" class="dropdown-item" data-page="settings">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                                <path fill="#fff" d="M14.035 2.809c.37-.266.89-.39 1.401-.203a10 10 0 0 1 2.982 1.725c.417.35.57.861.524 1.313c-.075.753.057 1.48.42 2.106c.32.557.802.997 1.39 1.307l.225.11c.414.187.782.576.875 1.113a10 10 0 0 1 0 3.44c-.083.484-.39.847-.753 1.051l-.122.063c-.69.31-1.254.79-1.616 1.416c-.362.627-.494 1.353-.419 2.106c.045.452-.107.964-.524 1.313a10 10 0 0 1-2.982 1.725a1.51 1.51 0 0 1-1.4-.203C13.42 20.75 12.723 20.5 12 20.5s-1.42.249-2.035.691a1.51 1.51 0 0 1-1.401.203a10 10 0 0 1-2.982-1.725a1.51 1.51 0 0 1-.524-1.313c.075-.753-.058-1.48-.42-2.106a3.4 3.4 0 0 0-1.39-1.307l-.225-.11a1.51 1.51 0 0 1-.875-1.113a10 10 0 0 1 0-3.44c.083-.484.39-.847.753-1.051l.122-.062c.69-.311 1.254-.79 1.616-1.417c.361-.626.494-1.353.419-2.106a1.51 1.51 0 0 1 .524-1.313a10 10 0 0 1 2.982-1.725a1.51 1.51 0 0 1 1.4.203c.615.442 1.312.691 2.036.691s1.42-.249 2.035-.691m.957 1.769c-.866.57-1.887.922-2.992.922s-2.126-.353-2.992-.922A8 8 0 0 0 7.068 5.7c.06 1.033-.145 2.093-.697 3.05c-.553.956-1.368 1.663-2.293 2.128a8 8 0 0 0 0 2.242c.925.465 1.74 1.172 2.293 2.13c.552.955.757 2.015.697 3.048a8 8 0 0 0 1.94 1.123c.866-.57 1.887-.922 2.992-.922s2.126.353 2.992.922a8 8 0 0 0 1.94-1.122c-.06-1.034.145-2.094.697-3.05c.552-.957 1.368-1.664 2.293-2.13a8 8 0 0 0 0-2.24c-.925-.466-1.74-1.173-2.293-2.13c-.552-.956-.757-2.016-.697-3.05a8 8 0 0 0-1.94-1.122ZM12 8a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"/>
+                            </g>
+                        </svg>
+                        Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" data-page="login">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                            <path fill="#fff" d="M13 21q-.425 0-.712-.288T12 20t.288-.712T13 19h6V5h-6q-.425 0-.712-.288T12 4t.288-.712T13 3h6q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm-1.825-8H4q-.425 0-.712-.288T3 12t.288-.712T4 11h7.175L9.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L14.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288T9.3 16.25q-.275-.3-.262-.712t.287-.688z"/>
+                        </svg>
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Welcome to Schedule Pro</h1>
+                <p>Your intelligent calendar and scheduling companion</p>
+                <a href="#" class="cta-button" data-page="calendar">Get Started</a>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <svg width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none">
+                            <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                            <path fill="#fff" d="M16 3a1 1 0 0 1 .993.883L17 4v1h2a2 2 0 0 1 1.995 1.85L21 7v12a2 2 0 0 1-1.85 1.995L19 21H5a2 2 0 0 1-1.995-1.85L3 19V7a2 2 0 0 1 1.85-1.995L5 5h2V4a1 1 0 0 1 1.993-.117L9 4v1h6V4a1 1 0 0 1 1-1m3 9H5v7h14zm0-5H5v3h14z"/>
+                        </g>
+                        <text id="feature-calendar-date" x="12" y="18" text-anchor="middle" fill="white" font-size="6" font-family="Arial" font-weight="bold"></text>
+                    </svg>
+                    <h3>Smart Calendar</h3>
+                    <p>Organize your events with an intuitive, responsive calendar interface</p>
+                </div>
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V2H8m7 9v2M2 12h2m16 0h2m-2 4a2 2 0 0 1-2 2H8.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 4 20.286V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zM9 11v2"/>
+                    </svg>
+                    <h3>AI Assistant</h3>
+                    <p>Get intelligent scheduling suggestions and manage your time efficiently</p>
+                </div>
+                <div class="feature-card" style="cursor: pointer;" onclick="navigateToPage('connections')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8m-2 4v-3.96v3.15M7 19h5"/>
+                            <rect width="6" height="10" x="16" y="12" rx="2"/>
+                        </g>
+                    </svg>
+                    <h3>Cross-Platform</h3>
+                    <p>Click to connect your favorite calendar services</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Page -->
+        <div id="calendar" class="page">
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button class="nav-btn" id="prevMonth">‹</button>
+                    <h2 id="currentMonth">January 2025</h2>
+                    <button class="nav-btn" id="nextMonth">›</button>
+                </div>
+                <button class="add-event-btn" id="addEventBtn">+ Add Event</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Chatbot Page -->
+        <div id="chatbot" class="page">
+            <div class="chatbot-container">
+                <div class="chat-header">
+                    <h2>AI Scheduling Assistant</h2>
+                    <p>Ask me anything about your schedule or time management</p>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        <p>Hello! I'm your AI scheduling assistant. I can help you manage your calendar, suggest optimal meeting times, and answer questions about your schedule. How can I assist you today?</p>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask me about your schedule...">
+                    <button class="send-btn" id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page">
+            <h2>User Profile</h2>
+            <p>Manage your personal information and preferences</p>
+            <div style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                            <path fill="#fff" d="M12 13c2.396 0 4.575.694 6.178 1.672c.8.488 1.484 1.064 1.978 1.69c.486.615.844 1.351.844 2.138c0 .845-.411 1.511-1.003 1.986c-.56.45-1.299.748-2.084.956c-1.578.417-3.684.558-5.913.558s-4.335-.14-5.913-.558c-.785-.208-1.524-.506-2.084-.956C3.41 20.01 3 19.345 3 18.5c0-.787.358-1.523.844-2.139c.494-.625 1.177-1.2 1.978-1.69C7.425 13.695 9.605 13 12 13m0 2c-2.023 0-3.843.59-5.136 1.379c-.647.394-1.135.822-1.45 1.222c-.324.41-.414.72-.414.899c0 .122.037.251.255.426c.249.2.682.407 1.344.582C7.917 19.858 9.811 20 12 20c2.19 0 4.083-.143 5.4-.492c.663-.175 1.096-.382 1.345-.582c.218-.175.255-.304.255-.426c0-.18-.09-.489-.413-.899c-.316-.4-.804-.828-1.451-1.222C15.843 15.589 14.023 15 12 15m0-13a5 5 0 1 1 0 10a5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6a3 3 0 0 0 0-6"/>
+                        </g>
+                    </svg>
+                    <h3>Account Settings</h3>
+                    <p>Update your personal information, email, and password</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div id="settings" class="page">
+            <h2>Settings</h2>
+            <p>Customize your Schedule Pro experience</p>
+            <div style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                            <path fill="#fff" d="M14.035 2.809c.37-.266.89-.39 1.401-.203a10 10 0 0 1 2.982 1.725c.417.35.57.861.524 1.313c-.075.753.057 1.48.42 2.106c.32.557.802.997 1.39 1.307l.225.11c.414.187.782.576.875 1.113a10 10 0 0 1 0 3.44c-.083.484-.39.847-.753 1.051l-.122.063c-.69.31-1.254.79-1.616 1.416c-.362.627-.494 1.353-.419 2.106c.045.452-.107.964-.524 1.313a10 10 0 0 1-2.982 1.725a1.51 1.51 0 0 1-1.4-.203C13.42 20.75 12.723 20.5 12 20.5s-1.42.249-2.035.691a1.51 1.51 0 0 1-1.401.203a10 10 0 0 1-2.982-1.725a1.51 1.51 0 0 1-.524-1.313c.075-.753-.058-1.48-.42-2.106a3.4 3.4 0 0 0-1.39-1.307l-.225-.11a1.51 1.51 0 0 1-.875-1.113a10 10 0 0 1 0-3.44c.083-.484.39-.847.753-1.051l.122-.062c.69-.311 1.254-.79 1.616-1.417c.361-.626.494-1.353.419-2.106a1.51 1.51 0 0 1 .524-1.313a10 10 0 0 1 2.982-1.725a1.51 1.51 0 0 1 1.4.203c.615.442 1.312.691 2.036.691s1.42-.249 2.035-.691m.957 1.769c-.866.57-1.887.922-2.992.922s-2.126-.353-2.992-.922A8 8 0 0 0 7.068 5.7c.06 1.033-.145 2.093-.697 3.05c-.553.956-1.368 1.663-2.293 2.128a8 8 0 0 0 0 2.242c.925.465 1.74 1.172 2.293 2.13c.552.955.757 2.015.697 3.048a8 8 0 0 0 1.94 1.123c.866-.57 1.887-.922 2.992-.922s2.126.353 2.992.922a8 8 0 0 0 1.94-1.122c-.06-1.034.145-2.094.697-3.05c.552-.957 1.368-1.664 2.293-2.13a8 8 0 0 0 0-2.24c-.925-.466-1.74-1.173-2.293-2.13c-.552-.956-.757-2.016-.697-3.05a8 8 0 0 0-1.94-1.122ZM12 8a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"/>
+                        </g>
+                    </svg>
+                    <h3>Preferences</h3>
+                    <p>Configure notifications, themes, and default calendar views</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Page -->
+        <div id="help" class="page">
+            <h2>Help & Support</h2>
+            <p>Find answers to common questions and get support</p>
+            <div style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none">
+                            <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                            <path fill="#fff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m0 12a1 1 0 1 1 0 2a1 1 0 0 1 0-2m0-9.5a3.625 3.625 0 0 1 1.348 6.99a.8.8 0 0 0-.305.201c-.044.05-.051.114-.05.18L13 14a1 1 0 0 1-1.993.117L11 14v-.25c0-1.153.93-1.845 1.604-2.116a1.626 1.626 0 1 0-2.229-1.509a1 1 0 1 1-2 0A3.625 3.625 0 0 1 12 6.5"/>
+                        </g>
+                    </svg>
+                    <h3>FAQ</h3>
+                    <p>Browse frequently asked questions about Schedule Pro</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Page -->
+        <div id="about" class="page">
+            <h2>Information</h2>
+            <p>Learn more about our mission and features</p>
+            <div style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+                        <g fill="none">
+                            <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/>
+                            <path fill="#fff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m-.01 6c.558 0 1.01.452 1.01 1.01v5.124A1 1 0 0 1 12.5 18h-.49A1.01 1.01 0 0 1 11 16.99V12a1 1 0 1 1 0-2zM12 7a1 1 0 1 1 0 2a1 1 0 0 1 0-2"/>
+                        </g>
+                    </svg>
+                    <h3>Our Mission</h3>
+                    <p>Empowering users to take control of their time with intelligent scheduling tools</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connections Page -->
+        <div id="connections" class="page">
+            <div class="connections-container">
+                <div class="connections-header">
+                    <h1>Connect Your Calendar</h1>
+                    <p>Sync across platforms with one click.</p>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search calendar providers…" class="connection-search">
+                    </div>
+                </div>
+                <div class="provider-grid">
+                    <div class="provider-card">
+                        <div class="provider-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="68" height="68">
+                                <rect width="22" height="22" x="13" y="13" fill="#fff"/>
+                                <polygon fill="#1e88e5" points="25.68,20.92 26.688,22.36 28.272,21.208 28.272,29.56 30,29.56 30,18.616 28.56,18.616"/>
+                                <path fill="#1e88e5" d="M22.943,23.745c0.625-0.574,1.013-1.37,1.013-2.249c0-1.747-1.533-3.168-3.417-3.168 c-1.602,0-2.972,1.009-3.33,2.453l1.657,0.421c0.165-0.664,0.868-1.146,1.673-1.146c0.942,0,1.709,0.646,1.709,1.44 c0,0.794-0.767,1.44-1.709,1.44h-0.997v1.728h0.997c1.081,0,1.993,0.751,1.993,1.64c0,0.904-0.866,1.64-1.931,1.64 c-0.962,0-1.784-0.61-1.914-1.418L17,26.802c0.262,1.636,1.81,2.87,3.6,2.87c2.007,0,3.64-1.511,3.64-3.368 C24.24,25.281,23.736,24.363,22.943,23.745z"/>
+                                <polygon fill="#fbc02d" points="34,42 14,42 13,38 14,34 34,34 35,38"/>
+                                <polygon fill="#4caf50" points="38,35 42,34 42,14 38,13 34,14 34,34"/>
+                                <path fill="#1e88e5" d="M34,14l1-4l-1-4H9C7.343,6,6,7.343,6,9v25l4,1l4-1V14H34z"/>
+                                <polygon fill="#e53935" points="34,34 34,42 42,34"/>
+                                <path fill="#1565c0" d="M39,6h-5v8h8V9C42,7.343,40.657,6,39,6z"/>
+                                <path fill="#1565c0" d="M9,42h5v-8H6v5C6,40.657,7.343,42,9,42z"/>
+                            </svg>
+                        </div>
+                        <h3>Google Calendar</h3>
+                        <a href="/connect/google" class="connect-btn">Connect</a>
+                    </div>
+                    <div class="provider-card">
+                        <div class="provider-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="68" height="68">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.33333,5.33333)">
+                                        <path d="M43.607,23.752l-7.162,-4.172v11.594h7.555v-6.738c0,-0.281 -0.15,-0.542 -0.393,-0.684z" fill="#1a237e"/>
+                                        <path d="M33.919,8.84h9.046v-1.108c0,-0.957 -0.775,-1.732 -1.731,-1.732h-23.567c-0.956,0 -1.732,0.775 -1.732,1.732v1.108h9.005z" fill="#0c4999"/>
+                                        <path d="M33.919,33.522h7.314c0.956,0 1.732,-0.775 1.732,-1.732v-6.827h-9.046z" fill="#0f73d9"/>
+                                        <path d="M15.936,24.964v6.827c0,0.956 0.775,1.732 1.732,1.732h7.273v-8.558h-9.005z" fill="#0f439d"/>
+                                        <path d="M33.919,8.84h9.046v8.027h-9.046z" fill="#2ecdfd"/>
+                                        <path d="M15.936,8.84h9.005v8.027h-9.005z" fill="#1c5fb0"/>
+                                        <path d="M24.94,24.964h8.979v8.558h-8.979z" fill="#1467c7"/>
+                                        <path d="M24.94,8.84h8.979v8.027h-8.979z" fill="#1690d5"/>
+                                        <path d="M33.919,16.867h9.046v8.096h-9.046z" fill="#1bb4ff"/>
+                                        <path d="M15.936,16.867h9.005v8.096h-9.005z" fill="#074daf"/>
+                                        <path d="M24.94,16.867h8.979v8.096h-8.979z" fill="#2076d4"/>
+                                        <path d="M15.441,42c0.463,0 26.87,0 26.87,0c0.933,0 1.689,-0.756 1.689,-1.689v-15.873c0,0 -0.03,0.658 -1.751,1.617c-1.3,0.724 -27.505,15.511 -27.505,15.511c0,0 0.234,0.434 0.697,0.434z" fill="#2ed0ff"/>
+                                        <path d="M42.279,41.997c-0.161,0 -26.59,0.003 -26.59,0.003c-0.933,0 -1.689,-0.756 -1.689,-1.689v-15.244l29.363,16.562c-0.245,0.196 -0.556,0.368 -1.084,0.368z" fill="#139fe2"/>
+                                        <path d="M22.319,34h-16.638c-0.928,0 -1.681,-0.753 -1.681,-1.681v-16.638c0,-0.928 0.753,-1.681 1.681,-1.681h16.638c0.928,0 1.681,0.753 1.681,1.681v16.638c0,0.928 -0.753,1.681 -1.681,1.681z" fill="#027ad4"/>
+                                        <path d="M13.914,18.734c-3.131,0 -5.017,2.392 -5.017,5.343c0,2.951 1.879,5.342 5.017,5.342c3.139,0 5.017,-2.392 5.017,-5.342c0,-2.951 -1.886,-5.343 -5.017,-5.343zM13.914,27.616c-1.776,0 -2.838,-1.584 -2.838,-3.539c0,-1.955 1.067,-3.539 2.838,-3.539c1.771,0 2.839,1.585 2.839,3.539c0,1.954 -1.064,3.539 -2.839,3.539z" fill="#ffffff"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Outlook Calendar</h3>
+                        <a href="/connect/outlook" class="connect-btn">Connect</a>
+                    </div>
+                    <div class="provider-card">
+                        <div class="provider-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68" height="68" viewBox="0 0 68 68">
+                                <g id="surface1">
+                                    <path style="fill:#FFFFFF;fill-opacity:1;fill-rule:evenodd;stroke:none;" d="M 53.265625 68 L 14.734375 68 C 10.824219 68.007812 7.070312 66.457031 4.308594 63.691406 C 1.542969 60.929688 -0.0078125 57.175781 0 53.265625 L 0 14.734375 C -0.0078125 10.824219 1.542969 7.070312 4.308594 4.308594 C 7.070312 1.542969 10.824219 -0.0078125 14.734375 0 L 53.265625 0 C 57.175781 -0.0078125 60.929688 1.542969 63.691406 4.308594 C 66.457031 7.070312 68.007812 10.824219 68 14.734375 L 68 53.265625 C 68.007812 57.175781 66.457031 60.929688 63.691406 63.691406 C 60.929688 66.457031 57.175781 68.007812 53.265625 68 Z M 53.265625 68"/>
+                                    <path style="fill:#FF3B30;fill-opacity:1;fill-rule:nonzero;stroke:none;" d="M 24.003906 14.527344 C 24.089844 15.257812 24.808594 15.730469 25.847656 15.730469 C 26.804688 15.730469 27.484375 15.246094 27.484375 14.5625 C 27.484375 13.984375 27.042969 13.648438 25.964844 13.410156 L 24.816406 13.160156 C 23.210938 12.816406 22.421875 11.992188 22.421875 10.65625 C 22.421875 9.015625 23.761719 7.925781 25.792969 7.925781 C 27.734375 7.925781 29.109375 9.007812 29.164062 10.5625 L 27.429688 10.5625 C 27.34375 9.84375 26.695312 9.375 25.804688 9.375 C 24.882812 9.375 24.273438 9.820312 24.273438 10.507812 C 24.273438 11.066406 24.695312 11.386719 25.726562 11.613281 L 26.789062 11.839844 C 28.558594 12.21875 29.320312 12.980469 29.320312 14.34375 C 29.320312 16.101562 27.960938 17.1875 25.75 17.1875 C 23.652344 17.1875 22.289062 16.15625 22.222656 14.527344 Z M 36.050781 14.824219 L 32.957031 14.824219 L 32.277344 16.960938 L 30.429688 16.960938 L 33.488281 8.152344 L 35.65625 8.152344 L 38.714844 16.960938 L 36.71875 16.960938 Z M 33.355469 13.445312 L 35.660156 13.445312 L 34.566406 9.941406 L 34.457031 9.941406 Z M 41.402344 16.960938 L 41.402344 9.671875 L 38.757812 9.671875 L 38.757812 8.152344 L 45.890625 8.152344 L 45.890625 9.671875 L 43.246094 9.671875 L 43.246094 16.960938 Z M 41.402344 16.960938"/>
+                                    <path style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;" d="M 21.03125 24.007812 C 26.589844 24.007812 30.542969 27.828125 30.542969 32.554688 C 30.542969 35.902344 29.019531 38.4375 23.5 44.125 L 15.210938 52.777344 L 15.210938 52.863281 L 31.335938 52.863281 L 31.335938 55.484375 L 11.132812 55.484375 L 11.132812 53.421875 L 22.082031 41.914062 C 26.527344 37.277344 27.621094 35.429688 27.621094 32.703125 C 27.621094 29.289062 24.9375 26.585938 21.03125 26.585938 C 16.929688 26.585938 13.859375 29.398438 13.816406 33.199219 L 10.984375 33.199219 C 11.027344 27.894531 15.296875 24.007812 21.03125 24.007812 Z M 35.136719 39.980469 C 35.136719 30.257812 39.367188 24.007812 46.367188 24.007812 C 53.386719 24.007812 57.574219 30.234375 57.574219 39.960938 C 57.574219 49.75 53.40625 55.976562 46.367188 55.976562 C 39.324219 55.976562 35.136719 49.773438 35.136719 39.980469 Z M 54.632812 39.980469 C 54.632812 31.84375 51.5625 26.605469 46.367188 26.605469 C 41.191406 26.605469 38.101562 31.886719 38.101562 39.960938 C 38.101562 48.183594 41.128906 53.398438 46.367188 53.398438 C 51.605469 53.398438 54.632812 48.183594 54.632812 39.980469 Z M 54.632812 39.980469"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Apple Calendar</h3>
+                        <a href="/connect/apple" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to access your schedule</p>
+                    </div>
+                    
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="login-btn">Sign In</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button class="social-btn google-btn" onclick="loginWithGoogle()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                            </svg>
+                            Continue with Google
+                        </button>
+                        
+                        <button class="social-btn microsoft-btn" onclick="loginWithMicrosoft()">
+                            <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
+                                <rect width="11" height="11" fill="#F25022"/>
+                                <rect x="12" width="11" height="11" fill="#7FBA00"/>
+                                <rect y="12" width="11" height="11" fill="#00A4EF"/>
+                                <rect x="12" y="12" width="11" height="11" fill="#FFB900"/>
+                            </svg>
+                            Continue with Microsoft
+                        </button>
+                        
+                        <button class="social-btn facebook-btn" onclick="loginWithFacebook()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
+                            </svg>
+                            Continue with Facebook
+                        </button>
+                    </div>
+
+                    <div class="stay-signed-in">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="staySignedIn" checked>
+                            <span class="checkbox-label">Stay signed in</span>
+                        </label>
+                    </div>
+
+                    <div class="login-footer">
+                        <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Add Event Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Event</h3>
+                <button class="close-btn" id="closeModal">×</button>
+            </div>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label>Event Title</label>
+                    <input type="text" id="eventTitle" placeholder="Enter event title" required>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="time" id="eventTime">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="eventDescription" placeholder="Event description (optional)" rows="3"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Add Event</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
