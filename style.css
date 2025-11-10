@@ -530,18 +530,7 @@ body {
 .social-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-}
-
-.google-btn:hover {
-    border-color: #4285F4;
-}
-
-.facebook-btn:hover {
-    border-color: #1877F2;
-}
-
-.microsoft-btn:hover {
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: #ffffff;
 }
 
 .stay-signed-in {
